@@ -1,0 +1,15 @@
+<import src="../common/list.wxml" />
+<import src="../common/tab.wxml" />
+
+<template name="rankitem">
+  <view class="rank-item">
+    {{item.text}}
+  </view>
+</template>
+<!--index.wxml-->
+<view class="container">
+  <template is="tab" data="{{list: tab}}" />
+  <view class="rank-list">
+    <template is="rankitem" wx:for="{{ranks}}" data="{{item: item}}" />
+  </view>
+</view>

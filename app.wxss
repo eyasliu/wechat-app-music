@@ -1,0 +1,16 @@
+/**app.wxss**/
+.container {
+  min-height: 100%;
+}
+.tab{
+	width: 100%;
+}
+.tab view{
+	display: inline-block;
+
+}
+.tab view.active{
+	color: #f00;
+	border-bottom: 1px solid #f00;
+	padding: 10rpx 1rem;
+}

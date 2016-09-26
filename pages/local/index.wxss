@@ -1,0 +1,15 @@
+/**index.wxss**/
+.rank-list{
+	width: 100%;
+	/*padding: 0.5rem;*/
+}
+.rank-item{
+	width: 48%;
+	margin: 1%;
+	float: left;
+	text-align: center;
+	height: 5rem;
+	line-height: 5rem;
+	vertical-align: middle;
+	background: #f3f;
+}

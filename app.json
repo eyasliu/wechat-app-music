@@ -10,5 +10,16 @@
     "navigationBarBackgroundColor": "#fff",
     "navigationBarTitleText": "WeChat",
     "navigationBarTextStyle":"black"
-  }
+  },
+  "tabBar": {
+    "borderStyle": "white",
+    "list": [{
+      "pagePath": "pages/local/index",
+      "text": "在线音乐"
+    }, {
+      "pagePath": "pages/online/index",
+      "text": "本地音乐"
+    }]
+  },
+  "debug": true
 }

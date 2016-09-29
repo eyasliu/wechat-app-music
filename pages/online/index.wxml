@@ -3,13 +3,13 @@
 
 <template name="rankitem">
   <view class="rank-item">
-    <view class="text">{{item.text}}</view>
+    <navigator url="/pages/online/list?type={{item.type}}" class="text">{{item.text}}</navigator>
     <view class="arrow"></view>
   </view>
 </template>
 <!--index.wxml-->
 <view class="container">
-  <template is="tab" data="{{list: tab}}" />
+  <template is="tab" data="{{list: tab, active: tabActive}}" />
   <view class="rank-list">
     <template is="rankitem" wx:for="{{ranks}}" data="{{item: item}}" />
   </view>

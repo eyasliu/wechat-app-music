@@ -1,9 +1,10 @@
 {
   "pages":[
-    "pages/local/index",
-    "pages/local/play",
     "pages/online/index",
-    "pages/online/search"
+    "pages/online/list",
+    "pages/online/search",
+    "pages/local/index",
+    "pages/local/play"
   ],
   "window":{
     "backgroundTextStyle":"light",
@@ -14,12 +15,13 @@
   "tabBar": {
     "borderStyle": "white",
     "list": [{
-      "pagePath": "pages/local/index",
+      "pagePath": "pages/online/index",
+      "iconPath": "https://avatars.githubusercontent.com/u/4774683?v=3",
       "text": "在线音乐"
     }, {
-      "pagePath": "pages/online/index",
+      "pagePath": "pages/local/index",
       "text": "本地音乐"
     }]
   },
-  "debug": true
+  "debug": false
 }

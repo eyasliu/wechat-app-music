@@ -6,19 +6,20 @@ var api = require('../../utils/api.js')
 var app = getApp()
 Page({
   data: Object.assign({
-    tabActive: 'search',
+    tabActive: 'rank',
     list: [],
     board: {}
   }, app.globalData.data),
   onReady: function(){
     wx.setNavigationBarTitle({title: "在线音乐"})
   },
-  onLoad: function () {
-    console.log('page:',app.getCurrentPage())
-    api.getOnline(1, 1)
+  onLoad: function (option) {
+
+    api.getOnline(option.type, 1)
     .then(data => {
       this.setData({
-        list: data.song_list
+        list: data.song_list,
+        board: data.billboard
       })
     })
   }

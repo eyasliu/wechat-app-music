@@ -1,0 +1,29 @@
+<import src="../common/tab.wxml" />
+
+<template name="board">
+	<view class="board">
+		<view class="img-bg">
+			<image src="{{data.pic_s210}}" />
+		</view>
+	</view>
+</template>
+
+<template name="item">
+	<view class="songitem">
+		<view class="song-no">{{index + 1}}</view>
+		<view class="detail">
+			<view class="title">{{item.title}}</view>
+			<view class="subtitle">{{item.author}} - {{item.style}}</view>
+		</view>
+	</view>
+</template>
+
+<view class="container">
+	<template is="tab" data="{{list: tab, active: tabActive}}" />
+	<template is="board" data="{{data: board}}" />
+	<view class="songlist">
+		<block wx:for="{{list}}">
+			<template is="item" data="{{item: item, index: index}}" />
+		</block>
+	</view>
+</view>

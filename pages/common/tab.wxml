@@ -1,7 +1,7 @@
 <template name="tab">
 	<view class="tab">
 		<block wx:for="{{list}}">
-			<view class="{{item.active ? 'active' : ''}}">
+			<view class="{{active == item.type ? 'active' : ''}}">
 				<navigator url="{{item.url}}">
 					{{item.label}}
 				</navigator>

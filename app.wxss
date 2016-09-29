@@ -16,3 +16,28 @@
 	color: #3eb94e;
 	border-bottom: 2px solid #3eb94e;
 }
+
+/* song list item */
+.songitem{
+	height: 3rem;
+	line-height: 1.5rem;
+	display: flex;
+	border-bottom: 1px solid #eee;
+	padding: 10rpx 0;
+}
+.song-no{
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+	line-height: 3rem;
+}
+.song-detail{
+	white-space: nowrap;
+	width: 90%;
+}
+.song-title{
+	font-weight: bold;
+}
+.song-subtitle{
+	color: #555;
+}

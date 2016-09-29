@@ -6,3 +6,13 @@
 		<view class="item-title">{{item.title}}</view>
 	</view>
 </template>
+
+<template name="songitem">
+	<view class="songitem">
+		<view class="song-no">{{index + 1}}</view>
+		<view class="song-detail">
+			<view class="song-title">{{item.title}}</view>
+			<view class="song-subtitle">{{item.author}} - {{item.style}}</view>
+		</view>
+	</view>
+</template>

@@ -12,9 +12,11 @@ Page({
       value: ""
     }
   }, app.globalData.data),
-  showToast(text){
+  showToast(text, type){
     this.setData({
-      toast: text
+      toast: {
+        text, type
+      }
     })
     setTimeout(() => {
       this.setData({
@@ -30,7 +32,7 @@ Page({
   bindSearch(e){
     var keyword = this.data.search.value
     if(!keyword) {
-      this.showToast('请输入关键字')
+      this.showToast('请输入关键字', 'warn')
       return;
     }
     this.getSearch(keyword).then(data => {

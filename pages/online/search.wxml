@@ -18,7 +18,7 @@
 		</block>
 	</view>
 
-	<toast wx:if="{{toast}}" duration="3000">
-	    {{toast}}
+	<toast wx:if="{{toast}}" icon="{{toast.type}}">
+	    {{toast.text}}
 	</toast>
 </scroll-view>

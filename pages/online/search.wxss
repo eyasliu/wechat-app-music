@@ -10,4 +10,5 @@
 	line-height: 2rem;
 	margin-bottom: 0.5rem;
 	padding-left: 0.5rem;
+	font-size: 0.8rem;
 }

@@ -18,13 +18,20 @@
 }
 
 /* song list item */
-.songitem{
+.songlist{
+	font-family: 'microsoft yahei';
+	width: 100%;
+	overflow-x: hidden;
+	font-size: 0.8rem;
+}
+.songitem, .songitem-mini{
 	height: 3rem;
 	line-height: 1.5rem;
 	display: flex;
 	border-bottom: 1px solid #eee;
 	padding: 10rpx 0;
 }
+
 .song-no{
 	width: 10%;
 	text-align: center;
@@ -36,7 +43,7 @@
 	width: 90%;
 }
 .song-title{
-	font-weight: bold;
+	font-size: 1rem;
 }
 .song-subtitle{
 	color: #555;

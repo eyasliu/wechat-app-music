@@ -61,12 +61,12 @@ App({
       tab: [{
         label: '排行榜',
         type: 'rank',
-        url: '',
+        url: '/pages/online/index',
         active: true
       }, {
         label: '搜索',
         type: 'search',
-        url: '/pages/local/search'
+        url: '/pages/online/search'
       }]
     }
   }

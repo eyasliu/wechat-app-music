@@ -13,6 +13,8 @@ var query = option => ({
 	formate: 'json'
 })
 
+var hackImg = url => 'http://www.beihaiw.com/pic.php?url=' + url
+
 var request = data => new Promise((resolve, reject) => {
 	wx.request({
 		url: baseUrl,
@@ -39,6 +41,16 @@ var getOnline = (type, paged) => {
 		type: type,
 		offset: limit * paged,
 		size: limit
+	}).then(data => {
+		data.billboard.pic_s210 = hackImg(data.billboard.pic_s210)
+		data.billboard.pic_s260 = hackImg(data.billboard.pic_s260)
+		data.billboard.pic_s444 = hackImg(data.billboard.pic_s444)
+		data.billboard.pic_s640 = hackImg(data.billboard.pic_s640)
+		data.song_list.forEach(item => {
+			item.pic_big = hackImg(item.pic_big);
+			item.pic_small = hackImg(item.pic_small);
+		})
+		return data;
 	})
 }
 

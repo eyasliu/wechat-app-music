@@ -5,12 +5,12 @@
 <template name="board">
 	<view class="board">
 		<view class="img-bg">
-			<image src="{{data.pic_s210}}" />
+			<image src="{{data.pic_s640}}" />
 		</view>
 	</view>
 </template>
 
-<view class="container">
+<scroll-view class="container">
 	<template is="tab" data="{{list: tab, active: tabActive}}" />
 	<template is="board" data="{{data: board}}" />
 	<view class="songlist">
@@ -18,4 +18,4 @@
 			<template is="songitem" data="{{item: item, index: index}}" />
 		</block>
 	</view>
-</view>
+</scroll-view>

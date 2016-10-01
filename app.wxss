@@ -1,6 +1,10 @@
 /**app.wxss**/
 .container {
   min-height: 100%;
+  font-family: 'microsoft yahei';
+}
+scroll-view.container{
+	height: 100%;
 }
 .tab{
 	width: 100%;
@@ -19,9 +23,10 @@
 
 /* song list item */
 .songlist{
-	font-family: 'microsoft yahei';
+	
 	width: 100%;
 	overflow-x: hidden;
+	overflow-y: visible;
 	font-size: 0.8rem;
 }
 .songitem, .songitem-mini{
@@ -30,13 +35,22 @@
 	display: flex;
 	border-bottom: 1px solid #eee;
 	padding: 10rpx 0;
+	width: 100%;
+}
+.songitem:active, .songitem-mini:active{
+	background: #eee;
 }
 
-.song-no{
+.song-play{
 	width: 10%;
 	text-align: center;
 	vertical-align: middle;
+}
+.song-play image{
 	line-height: 3rem;
+	width: 50rpx;
+	height: 50rpx;
+	padding-top: 13px;
 }
 .song-detail{
 	white-space: nowrap;

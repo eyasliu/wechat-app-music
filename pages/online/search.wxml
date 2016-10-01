@@ -9,7 +9,7 @@
 	</view>
 </template>
 
-<scroll-view class="container">
+<view class="container">
 	<template is="tab" data="{{list: tab, active: tabActive}}" />
 	<template is="search" data="{{data: search}}" />
 	<view class="songlist">
@@ -21,4 +21,5 @@
 	<toast wx:if="{{toast}}" icon="{{toast.type}}">
 	    {{toast.text}}
 	</toast>
-</scroll-view>
+
+</view>

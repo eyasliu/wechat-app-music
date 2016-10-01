@@ -10,9 +10,11 @@ Page({
     list: [],
     search: {
       value: ""
-    }
+    },
+    isEnd: false,
+    paged: 1,
   }, app.globalData.data),
-  showToast(text, type){
+  showToast(text, type = 'success'){
     this.setData({
       toast: {
         text, type
@@ -25,6 +27,8 @@ Page({
     }, 3000);
   },
   inputing(e){
+    console.log(e)
+    
     this.setData({
       search: Object.assign(this.data.search, {value: e.detail.value})
     })
@@ -35,25 +39,17 @@ Page({
       this.showToast('请输入关键字', 'warn')
       return;
     }
-    this.getSearch(keyword).then(data => {
+    api.search(keyword, 1).then(data => {
       this.setData({
+        paged: 1,
         list: data.song
       })
     })
-  },
-  getSearch(keyword){
-    return api.search(keyword)
   },
   onReady: function(){
     wx.setNavigationBarTitle({title: "在线搜索"})
   },
   onLoad: function (option) {
-    // api.getOnline(option.type, 1)
-    // .then(data => {
-    //   this.setData({
-    //     list: data.song_list,
-    //     board: data.billboard
-    //   })
-    // })
+
   }
 })

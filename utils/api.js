@@ -28,10 +28,11 @@ var request = data => new Promise((resolve, reject) => {
 	})
 })
 
-var search = keyword => request({
+var search = (keyword) => request({
 	method: apiMethod['search'],
 	query: keyword
 })
+
 
 // type = 1-新歌榜,2-热歌榜,11-摇滚榜,12-爵士,16-流行,21-欧美金曲榜,22-经典老歌榜,23-情歌对唱榜,24-影视金曲榜,25-网络歌曲榜
 var getOnline = (type, paged) => {
@@ -39,7 +40,7 @@ var getOnline = (type, paged) => {
 	return request({
 		method: apiMethod['list'],
 		type: type,
-		offset: limit * paged,
+		offset: limit * (paged - 1),
 		size: limit
 	}).then(data => {
 		data.billboard.pic_s210 = hackImg(data.billboard.pic_s210)
@@ -54,8 +55,14 @@ var getOnline = (type, paged) => {
 	})
 }
 
+var getDetail = id => request({
+	method: apiMethod['detail'],
+	songid: id
+})
+
 module.exports = {
 	getOnline,
+	getDetail,
 	search,
 	request,
 	apiMethod

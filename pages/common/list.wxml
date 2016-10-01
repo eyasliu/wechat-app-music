@@ -9,20 +9,20 @@
 
 <template name="songitem">
 	<view class="songitem">
-		<view class="song-no">{{index + 1}}</view>
-		<view class="song-detail">
+		<navigator redirect url="/pages/local/play?songid={{item.song_id}}" class="song-play"><image src="/images/play.png" /></navigator>
+		<navigator url="/pages/local/play?songid={{item.song_id}}" class="song-detail">
 			<view class="song-title">{{item.title}}</view>
 			<view class="song-subtitle">{{item.author}} - {{item.style}}</view>
-		</view>
+		</navigator>
 	</view>
 </template>
 
 <template name="song-mini-item">
 	<view class="songitem">
-		<view class="song-no">{{index + 1}}</view>
-		<view class="song-detail">
+		<navigator redirect url="/pages/local/play?songid={{item.songid}}" class="song-play"><image src="/images/play.png" /></navigator>
+		<navigator redirect url="/pages/local/play?songid={{item.songid}}" class="song-detail">
 			<view class="song-title">{{item.songname}}</view>
 			<view class="song-subtitle">{{item.artistname}}</view>
-		</view>
+		</navigator>
 	</view>
 </template>

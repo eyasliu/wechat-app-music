@@ -1,15 +1,15 @@
-var api = require('../../utils/api.js')
-var util = require('../../utils/util.js')
-var app = getApp()
+import wx from 'labrador';
+import api from '../../utils/api';
+import util from '../../utils/api';
 
-Page({
-	data: {
-		file: {},
-		item: {},
-		isPlaying: false
-	},
-
+export default class Play extends wx.Component{
+  data = {
+  	file: {},
+  	item: {},
+  	isPlaying: false
+  }
 	onLoad(option){
+		console.log(option)
 		if(option.songid){
 			util.playSong(option.songid).then((data, res) => {
 				this.setData(Object.assign({isPlaying: true}, data))
@@ -53,5 +53,5 @@ Page({
 				})
 			})
 		}
-	},
-})
+	}
+}

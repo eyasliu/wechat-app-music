@@ -1,0 +1,25 @@
+<import src="../../common/tab.wxml" />
+<import src="../../common/list.wxml" />
+
+
+<template name="search">
+	<view class="search-area"> 
+		<input bindinput="inputing" placeholder="请输入搜索关键字" value="{{data.value}}" />
+		<button type="primary" size="mini" bindtap="bindSearch" loading="{{data.loading}}"> 立即搜索 </button>
+	</view>
+</template>
+
+<view class="container">
+	<template is="tab" data="{{list: tab, active: tabActive}}" />
+	<template is="search" data="{{data: search}}" />
+	<view class="songlist">
+		<block wx:for="{{list}}">
+			<template is="song-mini-item" data="{{item: item, index: index}}" />
+		</block>
+	</view>
+
+	<toast wx:if="{{toast}}" icon="{{toast.type}}">
+	    {{toast.text}}
+	</toast>
+
+</view>

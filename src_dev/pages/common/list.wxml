@@ -1,0 +1,28 @@
+<template name="item">
+	<view class="item">
+		<view class="thumb">
+			<image src="{{item.pic_small}}" />
+		</view>
+		<view class="item-title">{{item.title}}</view>
+	</view>
+</template>
+
+<template name="songitem">
+	<view class="songitem">
+		<navigator redirect url="/pages/local/play?songid={{item.song_id}}" class="song-play"><image src="/images/play.png" /></navigator>
+		<navigator url="/pages/local/play?songid={{item.song_id}}" class="song-detail">
+			<view class="song-title">{{item.title}}</view>
+			<view class="song-subtitle">{{item.author}} - {{item.style}}</view>
+		</navigator>
+	</view>
+</template>
+
+<template name="song-mini-item">
+	<view class="songitem">
+		<navigator redirect url="/pages/local/play?songid={{item.songid}}" class="song-play"><image src="/images/play.png" /></navigator>
+		<navigator redirect url="/pages/local/play?songid={{item.songid}}" class="song-detail">
+			<view class="song-title">{{item.songname}}</view>
+			<view class="song-subtitle">{{item.artistname}}</view>
+		</navigator>
+	</view>
+</template>

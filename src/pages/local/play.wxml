@@ -1,0 +1,12 @@
+<view class="playing container">
+	<view class="thumbnail">
+		<image src="{{item.pic_premium}}" />
+	</view>
+	<view class="detail">
+		<view class="title">{{item.title}}</view>
+		<view class="author">{{item.author}}</view>
+		<view class="action">
+			<view class="act-toggle" bindtap="playToggle"><image src="/images/{{isPlaying ? 'pause' : 'play'}}.png" /></view>
+		</view>
+	</view>
+</view>

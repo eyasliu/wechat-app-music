@@ -1,0 +1,3 @@
+<view class="text-view">
+  <text class="title-text" catchtap="handleTap" style="color:{{color}};">{{text}}</text>
+</view>

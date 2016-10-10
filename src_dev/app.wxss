@@ -1,0 +1,64 @@
+/**app.wxss**/
+.container {
+  min-height: 100%;
+  font-family: 'microsoft yahei';
+}
+scroll-view.container{
+	height: 100%;
+}
+.tab{
+	width: 100%;
+	border-bottom: 1px solid #eee;
+	text-align: center;
+	line-height: 2rem;
+}
+.tab view{
+	display: inline-block;
+	width: 372rpx;
+}
+.tab view.active{
+	color: #3eb94e;
+	border-bottom: 2px solid #3eb94e;
+}
+
+/* song list item */
+.songlist{
+	
+	width: 100%;
+	overflow-x: hidden;
+	overflow-y: visible;
+	font-size: 0.8rem;
+}
+.songitem, .songitem-mini{
+	height: 3rem;
+	line-height: 1.5rem;
+	display: flex;
+	border-bottom: 1px solid #eee;
+	padding: 10rpx 0;
+	width: 100%;
+}
+.songitem:active, .songitem-mini:active{
+	background: #eee;
+}
+
+.song-play{
+	width: 10%;
+	text-align: center;
+	vertical-align: middle;
+}
+.song-play image{
+	line-height: 3rem;
+	width: 50rpx;
+	height: 50rpx;
+	padding-top: 13px;
+}
+.song-detail{
+	white-space: nowrap;
+	width: 90%;
+}
+.song-title{
+	font-size: 1rem;
+}
+.song-subtitle{
+	color: #555;
+}

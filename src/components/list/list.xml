@@ -1,0 +1,6 @@
+<view>
+  <component key="title" name="title"/>
+  <view wx:for="{{items}}">
+    {{index+1}}: {{item.title}}
+  </view>
+</view>

@@ -1,0 +1,43 @@
+import wx from 'labrador';
+import api from '../../utils/api';
+import util from '../../utils/util';
+
+export default class Play extends wx.Component{
+  data = {
+  	file: {},
+  	item: {},
+  	isPlaying: false
+  }
+	async onLoad(option){
+		if(option.songid){
+			const data = await util.playSong(option.songid)
+			this.setData({
+				isPlaying: true,
+				data
+			})
+			await wx.setStorage({key: 'playing', data: data})
+		} else {
+			const res = await wx.getStorage({key: 'playing'})
+			this.setData(res.data)
+		}
+
+		const res = await wx.getStorage({key: 'isPlaying'})
+		this.setData({
+			isPlaying: res.data
+		})
+
+	}
+	async playToggle(e){
+		if(this.data.isPlaying){
+			wx.stopBackgroundAudio()
+			this.setData({
+				isPlaying: false
+			})
+		} else {
+			await util.playSong(this.data.item.song_id)
+			this.setData({
+				isPlaying: true
+			})
+		}
+	}
+}

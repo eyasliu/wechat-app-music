@@ -1,0 +1,30 @@
+.playing{
+
+}
+.thumbnail image{
+	height: 300px;
+	width: 100%;
+}
+.title{
+	text-align: center;
+	font-size: 1.3rem;
+	margin-top: 20rpx;
+	margin-bottom: 20rpx;
+}
+.author{
+	text-align: center;
+	color: #555;
+}
+.action{
+	text-align: center;
+	margin-top: 1rem;
+
+}
+.action image{
+	width: 200rpx;
+	height: 200rpx;
+}
+.action view{
+	display: inline-block;
+	margin: 0 15rpx;
+}

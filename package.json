@@ -4,7 +4,9 @@
   "description": "- 歌曲资源来源于 [baidu音乐](http://music.baidu.com/)",
   "main": "index.js",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "labrador watch",
+    "build": "labrador build"
   },
   "repository": {
     "type": "git",
@@ -32,6 +34,7 @@
     "eslint-plugin-jsx-a11y": "^2.2.3",
     "eslint-plugin-react": "^6.4.0",
     "labrador": "^0.3.1",
+    "labrador-cli": "^0.3.3",
     "less": "^2.7.1",
     "regenerator-runtime": "^0.9.5"
   }

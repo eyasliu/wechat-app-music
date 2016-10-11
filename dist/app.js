@@ -85,6 +85,6 @@ var _class = function _class() {
 
 exports.default = _class;
 {
-App(new exports.default());
+var __app=new exports.default();Object.getOwnPropertyNames(__app.constructor.prototype).forEach(function(name){if(name!=='constructor')__app[name]=__app.constructor.prototype[name]});App(__app);
 }
 }catch(error){console.error(error.stack);throw error;}

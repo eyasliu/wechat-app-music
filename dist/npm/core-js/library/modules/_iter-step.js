@@ -1,4 +1,1 @@
-'use strict';
-var exports=module.exports={};module.exports = function(done, value){
-  return {value: value, done: !!done};
-};
+"use strict";var exports=module.exports={};module.exports=function(e,o){return{value:o,done:!!e}};

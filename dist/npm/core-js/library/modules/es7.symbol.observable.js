@@ -1,2 +1,1 @@
-'use strict';
-var exports=module.exports={};require('./_wks-define.js')('observable');
+"use strict";var exports=module.exports={};require("./_wks-define.js")("observable");

@@ -1,5 +1,1 @@
-'use strict';
-var exports=module.exports={};module.exports = function(it){
-  if(typeof it != 'function')throw TypeError(it + ' is not a function!');
-  return it;
-};
+"use strict";var exports=module.exports={};module.exports=function(o){if("function"!=typeof o)throw TypeError(o+" is not a function!");return o};

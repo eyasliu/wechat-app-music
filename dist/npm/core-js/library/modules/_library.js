@@ -1,2 +1,1 @@
-'use strict';
-var exports=module.exports={};module.exports = true;
+"use strict";var exports=module.exports={};module.exports=!0;

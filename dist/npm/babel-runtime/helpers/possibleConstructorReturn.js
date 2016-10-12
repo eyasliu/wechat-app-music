@@ -1,18 +1,1 @@
-'use strict';
-var exports=module.exports={};"use strict";
-
-exports.__esModule = true;
-
-var _typeof2 = require('./typeof.js');
-
-var _typeof3 = _interopRequireDefault(_typeof2);
-
-function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
-
-exports.default = function (self, call) {
-  if (!self) {
-    throw new ReferenceError("this hasn't been initialised - super() hasn't been called");
-  }
-
-  return call && ((typeof call === "undefined" ? "undefined" : (0, _typeof3.default)(call)) === "object" || typeof call === "function") ? call : self;
-};
+"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var exports=module.exports={};exports.__esModule=!0;var _typeof2=require("./typeof.js"),_typeof3=_interopRequireDefault(_typeof2);exports["default"]=function(e,t){if(!e)throw new ReferenceError("this hasn't been initialised - super() hasn't been called");return!t||"object"!==("undefined"==typeof t?"undefined":(0,_typeof3["default"])(t))&&"function"!=typeof t?e:t};

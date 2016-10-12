@@ -1,6 +1,1 @@
-'use strict';
-var exports=module.exports={};var shared = require('./_shared.js')('keys')
-  , uid    = require('./_uid.js');
-module.exports = function(key){
-  return shared[key] || (shared[key] = uid(key));
-};
+"use strict";var exports=module.exports={},shared=require("./_shared.js")("keys"),uid=require("./_uid.js");module.exports=function(e){return shared[e]||(shared[e]=uid(e))};

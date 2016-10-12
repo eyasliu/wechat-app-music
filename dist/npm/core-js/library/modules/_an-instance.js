@@ -1,6 +1,1 @@
-'use strict';
-var exports=module.exports={};module.exports = function(it, Constructor, name, forbiddenField){
-  if(!(it instanceof Constructor) || (forbiddenField !== undefined && forbiddenField in it)){
-    throw TypeError(name + ': incorrect invocation!');
-  } return it;
-};
+"use strict";var exports=module.exports={};module.exports=function(o,r,t,e){if(!(o instanceof r)||void 0!==e&&e in o)throw TypeError(t+": incorrect invocation!");return o};

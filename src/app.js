@@ -1,6 +1,8 @@
 import wx from 'labrador';
 import { sleep } from './utils/util';
-
+import createStore from './utils/store'
+import reducers from './reducers'
+const store = createStore(reducers)
 export default class {
   constructor(){
     // 音乐播放状态
@@ -14,7 +16,8 @@ export default class {
     wx.onBackgroundAudioStop(setSongStatus(false))
     wx.onBackgroundAudioPlay(setSongStatus(true))
   }
-
+  store = store
+  dispatch = store.dispatch
   globalData = {
     playing: {},
     data: {

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "labrador watch",
-    "build": "labrador build"
+    "build": "labrador build -m"
   },
   "repository": {
     "type": "git",
@@ -36,6 +36,8 @@
     "labrador": "^0.5.5",
     "labrador-cli": "^0.5.8",
     "less": "^2.7.1",
+    "redux": "^3.6.0",
+    "redux-thunk": "^2.1.0",
     "regenerator-runtime": "^0.9.5"
   }
 }

@@ -6,7 +6,7 @@
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "labrador watch",
-    "build": "labrador build -m"
+    "build": "labrador build"
   },
   "repository": {
     "type": "git",

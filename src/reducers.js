@@ -2,7 +2,11 @@ import {combineReducers} from 'redux';
 import createReducer from 'redux-create-reducer-curry'
 
 const initState = {
-  playing: {},
+  playing: {
+  	file: {},
+  	item: {},
+  	isPlaying: false,
+  },
   search: {
   	list: []
   },
@@ -95,8 +99,20 @@ const search = createReducer(initState.search)({
 	})
 })
 
+const playing = createReducer(initState.playing)({
+	UPDATE_PLAY: (state, action) => {
+		const newState = {
+			...state,
+			...action
+		}
+		wx.setStorage({key: 'playing', data: newState})
+		return newState;
+	}
+})
+
 export default combineReducers({
 	rank,
 	tab,
-	search
+	search,
+	playing
 })

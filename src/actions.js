@@ -16,3 +16,10 @@ export function searchList(keyword){
     list: data.song
   }))
 }
+
+export function playing(data){
+	return {
+		type: "UPDATE_PLAY",
+		...data
+	}
+}

@@ -10,7 +10,7 @@
 	</view>
 </template>
 
-<scroll-view class="container" scroll-y="true" bindscrolltolower="nextpage">
+<scroll-view class="container" scroll-y="true" scrolltolower="nextpage">
 	<template is="tab" data="{{list: tab, active: tabActive}}" />
 	<template is="board" data="{{data: board}}" />
 	<view class="songlist">

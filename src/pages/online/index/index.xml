@@ -9,7 +9,7 @@
 </template>
 <!--index.wxml-->
 <view class="container">
-  <template is="tab" data="{{list: tab, active: tabActive}}" />
+  <template is="tab" data="{{list: tab}}" />
   <view class="rank-list">
     <template is="rankitem" wx:for="{{ranks}}" data="{{item: item}}" />
   </view>

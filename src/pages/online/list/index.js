@@ -1,12 +1,9 @@
 import wx from 'labrador';
-import api from '../../../utils/api.js';
+import {getRankList} from '../../../actions';
 
 class List extends wx.Component{
   app = getApp()
   data = {
-    tabActive: 'rank',
-    list: [],
-    board: {},
     paged: 1,
     loading: false
   }
@@ -18,28 +15,28 @@ class List extends wx.Component{
   }
   async onLoad(option) {
     this.loading(true);
-    const data = await api.getOnline(option.type, 1)
+    const data = await wx.app.dispatch(getRankList(option.type, 1))
+
     this.setData({
       type: option.type,
-      list: data.song_list,
-      board: data.billboard,
+      paged: 1,
       loading: false
     })
   }
   async nextpage(e){
     var paged = this.data.paged + 1;
     this.loading(true)
-    const data = await api.getOnline(this.data.type, paged)
+    await wx.app.dispatch(getRankList(this.data.type, paged))
+    // const data = await api.getOnline(this.data.type, paged)
     this.setData({
       paged: paged,
-      list: [
-        ...this.data.list,
-        ...data.song_list
-      ],
       loading: false
     })
   }
 }
 export default wx.app.connect(
-  state => state
+  state => ({
+    ...state.rank,
+    tab: state.tab
+  })
 )(List)

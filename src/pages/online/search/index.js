@@ -4,10 +4,9 @@ import api from '../../../utils/api'
 
 //index.js
 //获取应用实例
-export default class Search extends wx.Component{
+class Search extends wx.Component{
   app = getApp()
   data = {
-    ...this.app.globalData.data,
     tabActive: 'search',
     list: [],
     search: {
@@ -51,3 +50,7 @@ export default class Search extends wx.Component{
     wx.setNavigationBarTitle({title: "在线搜索"})
   }
 }
+
+export default wx.app.connect(
+  state => state
+)(Search)

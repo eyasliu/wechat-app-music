@@ -1,10 +1,9 @@
 import wx from 'labrador';
 import api from '../../../utils/api.js';
 
-export default class List extends wx.Component{
+class List extends wx.Component{
   app = getApp()
   data = {
-    ...this.app.globalData.data,
     tabActive: 'rank',
     list: [],
     board: {},
@@ -41,3 +40,6 @@ export default class List extends wx.Component{
     })
   }
 }
+export default wx.app.connect(
+  state => state
+)(List)

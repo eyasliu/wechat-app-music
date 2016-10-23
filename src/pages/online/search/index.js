@@ -1,20 +1,10 @@
 import wx from 'labrador';
-import api from '../../../utils/api'
-
+import {searchList} from '../../../actions'
 
 //index.js
 //获取应用实例
 class Search extends wx.Component{
   app = getApp()
-  data = {
-    tabActive: 'search',
-    list: [],
-    search: {
-      value: ""
-    },
-    isEnd: false,
-    paged: 1,
-  }
 
   showToast(text, type = 'success'){
     this.setData({
@@ -39,18 +29,24 @@ class Search extends wx.Component{
       this.showToast('请输入关键字', 'warn')
       return;
     }
-    api.search(keyword, 1).then(data => {
-      this.setData({
-        paged: 1,
-        list: data.song
-      })
-    })
+    wx.app.dispatch(searchList(keyword))
   }
   onReady(){
     wx.setNavigationBarTitle({title: "在线搜索"})
+    wx.app.dispatch({
+      type: 'TAB_ACTIVE',
+      active: 'search'
+    })
   }
 }
 
 export default wx.app.connect(
-  state => state
+  state => ({
+    list: state.search.list,
+    tab: state.tab,
+    search: {
+      value: ""
+    },
+    isEnd: false
+  })
 )(Search)

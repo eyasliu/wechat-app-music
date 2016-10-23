@@ -3,6 +3,9 @@ import createReducer from 'redux-create-reducer-curry'
 
 const initState = {
   playing: {},
+  search: {
+  	list: []
+  },
   rank: {
   	items: [
   		{
@@ -85,7 +88,15 @@ const rank = createReducer(initState.rank)({
 	})
 })
 
+const search = createReducer(initState.search)({
+	SEARCH: (state, action) => ({
+		...state,
+		list: action.list
+	})
+})
+
 export default combineReducers({
 	rank,
-	tab
+	tab,
+	search
 })

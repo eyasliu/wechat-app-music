@@ -13,6 +13,7 @@ class Index extends wx.Component {
 }
 export default wx.app.connect(
 	state => ({
-		ranks: state.rank.items
+		ranks: state.rank.items,
+		tab: state.tab
 	})
 )(Index)

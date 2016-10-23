@@ -9,3 +9,10 @@ export function getRankList(type, paged){
 		}
 	}))
 }
+
+export function searchList(keyword){
+	return api.search(keyword).then(data => ({
+    type: 'SEARCH',
+    list: data.song
+  }))
+}

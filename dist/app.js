@@ -1,1 +1,62 @@
-"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var exports=module.exports={};try{var global=window=require("./npm/labrador/global.js");Object.defineProperty(exports,"__esModule",{value:!0});var _classCallCheck2=require("./npm/babel-runtime/helpers/classCallCheck.js"),_classCallCheck3=_interopRequireDefault(_classCallCheck2),_labrador=require("./npm/labrador/index.js"),_labrador2=_interopRequireDefault(_labrador),_util=require("./utils/util.js"),_class=function e(){(0,_classCallCheck3["default"])(this,e),this.globalData={playing:{},data:{ranks:[{text:"新歌榜",type:1},{text:"热歌榜",type:2},{text:"摇滚榜",type:11},{text:"爵士",type:12},{text:"流行",type:16},{text:"欧美金曲榜",type:21},{text:"经典老歌榜",type:22},{text:"情歌对唱榜",type:23},{text:"影视金曲榜",type:24},{text:"网络歌曲榜",type:25}],list:[],tab:[{label:"排行榜",type:"rank",url:"/pages/online/index",active:!0},{label:"搜索",type:"search",url:"/pages/online/search/index"}]}};var t=function(e){return function(){_labrador2["default"].setStorage({key:"isPlaying",data:e})}};_labrador2["default"].onBackgroundAudioPause(t(!1)),_labrador2["default"].onBackgroundAudioStop(t(!1)),_labrador2["default"].onBackgroundAudioPlay(t(!0))};exports["default"]=_class;var __app=new exports["default"];Object.getOwnPropertyNames(__app.constructor.prototype).forEach(function(e){"constructor"!==e&&(__app[e]=__app.constructor.prototype[e])}),App(__app)}catch(error){throw console.error(error.stack),error}
+'use strict';
+(function(module,require){var exports=module.exports={};
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+
+var _classCallCheck2 = require('./npm/babel-runtime/helpers/classCallCheck.js');
+
+var _classCallCheck3 = _interopRequireDefault(_classCallCheck2);
+
+var _labrador = require('./npm/labrador/index.js');
+
+var _labrador2 = _interopRequireDefault(_labrador);
+
+var _util = require('./utils/util.js');
+
+var _store = require('./utils/store.js');
+
+var _store2 = _interopRequireDefault(_store);
+
+var _reducers = require('./reducers.js');
+
+var _reducers2 = _interopRequireDefault(_reducers);
+
+var _connect = require('./utils/wechat-weapp-redux/connect.js');
+
+var _connect2 = _interopRequireDefault(_connect);
+
+var _Provider = require('./utils/wechat-weapp-redux/Provider.js');
+
+var _Provider2 = _interopRequireDefault(_Provider);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+var store = (0, _store2.default)(_reducers2.default);
+
+var _class = function _class() {
+  (0, _classCallCheck3.default)(this, _class);
+  this.store = store;
+  this.dispatch = store.dispatch;
+  this.connect = _connect2.default;
+
+  // 音乐播放状态
+  var setSongStatus = function setSongStatus(isPlaying) {
+    return function () {
+      _labrador2.default.setStorage({
+        key: 'isPlaying',
+        data: isPlaying
+      });
+    };
+  };
+  _labrador2.default.onBackgroundAudioPause(setSongStatus(false));
+  _labrador2.default.onBackgroundAudioStop(setSongStatus(false));
+  _labrador2.default.onBackgroundAudioPlay(setSongStatus(true));
+};
+
+exports.default = _class;
+{
+var __app=new exports.default();Object.getOwnPropertyNames(__app.constructor.prototype).forEach(function(name){if(name!=='constructor')__app[name]=__app.constructor.prototype[name]});App(__app);
+}
+})(module,require);

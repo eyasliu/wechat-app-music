@@ -1,1 +1,8 @@
-"use strict";var exports=module.exports={},cof=require("./_cof.js");module.exports=Array.isArray||function(r){return"Array"==cof(r)};
+'use strict';
+(function(module,require){var exports=module.exports={};
+// 7.2.2 IsArray(argument)
+var cof = require('./_cof.js');
+module.exports = Array.isArray || function isArray(arg){
+  return cof(arg) == 'Array';
+};
+})(module,require);

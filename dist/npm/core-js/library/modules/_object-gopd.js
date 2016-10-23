@@ -1,1 +1,19 @@
-"use strict";var exports=module.exports={},pIE=require("./_object-pie.js"),createDesc=require("./_property-desc.js"),toIObject=require("./_to-iobject.js"),toPrimitive=require("./_to-primitive.js"),has=require("./_has.js"),IE8_DOM_DEFINE=require("./_ie8-dom-define.js"),gOPD=Object.getOwnPropertyDescriptor;exports.f=require("./_descriptors.js")?gOPD:function(e,r){if(e=toIObject(e),r=toPrimitive(r,!0),IE8_DOM_DEFINE)try{return gOPD(e,r)}catch(t){}return has(e,r)?createDesc(!pIE.f.call(e,r),e[r]):void 0};
+'use strict';
+(function(module,require){var exports=module.exports={};
+var pIE            = require('./_object-pie.js')
+  , createDesc     = require('./_property-desc.js')
+  , toIObject      = require('./_to-iobject.js')
+  , toPrimitive    = require('./_to-primitive.js')
+  , has            = require('./_has.js')
+  , IE8_DOM_DEFINE = require('./_ie8-dom-define.js')
+  , gOPD           = Object.getOwnPropertyDescriptor;
+
+exports.f = require('./_descriptors.js') ? gOPD : function getOwnPropertyDescriptor(O, P){
+  O = toIObject(O);
+  P = toPrimitive(P, true);
+  if(IE8_DOM_DEFINE)try {
+    return gOPD(O, P);
+  } catch(e){ /* empty */ }
+  if(has(O, P))return createDesc(!pIE.f.call(O, P), O[P]);
+};
+})(module,require);

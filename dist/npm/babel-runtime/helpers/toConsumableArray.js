@@ -1,1 +1,24 @@
-"use strict";function _interopRequireDefault(r){return r&&r.__esModule?r:{"default":r}}var exports=module.exports={};exports.__esModule=!0;var _from=require("../core-js/array/from.js"),_from2=_interopRequireDefault(_from);exports["default"]=function(r){if(Array.isArray(r)){for(var e=0,t=Array(r.length);e<r.length;e++)t[e]=r[e];return t}return(0,_from2["default"])(r)};
+'use strict';
+(function(module,require){var exports=module.exports={};
+"use strict";
+
+exports.__esModule = true;
+
+var _from = require('../core-js/array/from.js');
+
+var _from2 = _interopRequireDefault(_from);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (arr) {
+  if (Array.isArray(arr)) {
+    for (var i = 0, arr2 = Array(arr.length); i < arr.length; i++) {
+      arr2[i] = arr[i];
+    }
+
+    return arr2;
+  } else {
+    return (0, _from2.default)(arr);
+  }
+};
+})(module,require);

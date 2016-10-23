@@ -1,1 +1,41 @@
-"use strict";function _interopRequireDefault(e){return e&&e.__esModule?e:{"default":e}}var exports=module.exports={};exports.__esModule=!0;var _promise=require("../core-js/promise.js"),_promise2=_interopRequireDefault(_promise);exports["default"]=function(e){return function(){var r=e.apply(this,arguments);return new _promise2["default"](function(e,t){function n(u,o){try{var i=r[u](o),s=i.value}catch(a){return void t(a)}return i.done?void e(s):_promise2["default"].resolve(s).then(function(e){return n("next",e)},function(e){return n("throw",e)})}return n("next")})}};
+'use strict';
+(function(module,require){var exports=module.exports={};
+"use strict";
+
+exports.__esModule = true;
+
+var _promise = require('../core-js/promise.js');
+
+var _promise2 = _interopRequireDefault(_promise);
+
+function _interopRequireDefault(obj) { return obj && obj.__esModule ? obj : { default: obj }; }
+
+exports.default = function (fn) {
+  return function () {
+    var gen = fn.apply(this, arguments);
+    return new _promise2.default(function (resolve, reject) {
+      function step(key, arg) {
+        try {
+          var info = gen[key](arg);
+          var value = info.value;
+        } catch (error) {
+          reject(error);
+          return;
+        }
+
+        if (info.done) {
+          resolve(value);
+        } else {
+          return _promise2.default.resolve(value).then(function (value) {
+            return step("next", value);
+          }, function (err) {
+            return step("throw", err);
+          });
+        }
+      }
+
+      return step("next");
+    });
+  };
+};
+})(module,require);

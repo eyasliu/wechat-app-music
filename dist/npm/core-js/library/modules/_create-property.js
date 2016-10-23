@@ -1,1 +1,10 @@
-"use strict";var exports=module.exports={},$defineProperty=require("./_object-dp.js"),createDesc=require("./_property-desc.js");module.exports=function(e,r,t){r in e?$defineProperty.f(e,r,createDesc(0,t)):e[r]=t};
+'use strict';
+(function(module,require){var exports=module.exports={};
+var $defineProperty = require('./_object-dp.js')
+  , createDesc      = require('./_property-desc.js');
+
+module.exports = function(object, index, value){
+  if(index in object)$defineProperty.f(object, index, createDesc(0, value));
+  else object[index] = value;
+};
+})(module,require);

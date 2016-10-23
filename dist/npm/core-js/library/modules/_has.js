@@ -1,1 +1,7 @@
-"use strict";var exports=module.exports={},hasOwnProperty={}.hasOwnProperty;module.exports=function(r,e){return hasOwnProperty.call(r,e)};
+'use strict';
+(function(module,require){var exports=module.exports={};
+var hasOwnProperty = {}.hasOwnProperty;
+module.exports = function(it, key){
+  return hasOwnProperty.call(it, key);
+};
+})(module,require);

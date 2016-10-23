@@ -1,1 +1,20 @@
-"use strict";var exports=module.exports={},has=require("./_has.js"),toIObject=require("./_to-iobject.js"),arrayIndexOf=require("./_array-includes.js")(!1),IE_PROTO=require("./_shared-key.js")("IE_PROTO");module.exports=function(r,e){var s,t=toIObject(r),a=0,o=[];for(s in t)s!=IE_PROTO&&has(t,s)&&o.push(s);for(;e.length>a;)has(t,s=e[a++])&&(~arrayIndexOf(o,s)||o.push(s));return o};
+'use strict';
+(function(module,require){var exports=module.exports={};
+var has          = require('./_has.js')
+  , toIObject    = require('./_to-iobject.js')
+  , arrayIndexOf = require('./_array-includes.js')(false)
+  , IE_PROTO     = require('./_shared-key.js')('IE_PROTO');
+
+module.exports = function(object, names){
+  var O      = toIObject(object)
+    , i      = 0
+    , result = []
+    , key;
+  for(key in O)if(key != IE_PROTO)has(O, key) && result.push(key);
+  // Don't enum bug & hidden keys
+  while(names.length > i)if(has(O, key = names[i++])){
+    ~arrayIndexOf(result, key) || result.push(key);
+  }
+  return result;
+};
+})(module,require);

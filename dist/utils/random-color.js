@@ -1,1 +1,16 @@
-"use strict";function random(){return parseInt(256*Math.random())}function randomColor(){return"rgb("+random()+","+random()+","+random()+")"}var exports=module.exports={};try{Object.defineProperty(exports,"__esModule",{value:!0}),exports["default"]=randomColor}catch(error){throw console.error(error.stack),error}
+'use strict';
+(function(module,require){var exports=module.exports={};
+"use strict";
+
+Object.defineProperty(exports, "__esModule", {
+  value: true
+});
+exports.default = randomColor;
+function random() {
+  return parseInt(Math.random() * 256);
+}
+
+function randomColor() {
+  return "rgb(" + random() + "," + random() + "," + random() + ")";
+}
+})(module,require);

@@ -1,1 +1,19 @@
-"use strict";var exports=module.exports={},anObject=require("./_an-object.js"),IE8_DOM_DEFINE=require("./_ie8-dom-define.js"),toPrimitive=require("./_to-primitive.js"),dP=Object.defineProperty;exports.f=require("./_descriptors.js")?Object.defineProperty:function(e,r,t){if(anObject(e),r=toPrimitive(r,!0),anObject(t),IE8_DOM_DEFINE)try{return dP(e,r,t)}catch(i){}if("get"in t||"set"in t)throw TypeError("Accessors not supported!");return"value"in t&&(e[r]=t.value),e};
+'use strict';
+(function(module,require){var exports=module.exports={};
+var anObject       = require('./_an-object.js')
+  , IE8_DOM_DEFINE = require('./_ie8-dom-define.js')
+  , toPrimitive    = require('./_to-primitive.js')
+  , dP             = Object.defineProperty;
+
+exports.f = require('./_descriptors.js') ? Object.defineProperty : function defineProperty(O, P, Attributes){
+  anObject(O);
+  P = toPrimitive(P, true);
+  anObject(Attributes);
+  if(IE8_DOM_DEFINE)try {
+    return dP(O, P, Attributes);
+  } catch(e){ /* empty */ }
+  if('get' in Attributes || 'set' in Attributes)throw TypeError('Accessors not supported!');
+  if('value' in Attributes)O[P] = Attributes.value;
+  return O;
+};
+})(module,require);

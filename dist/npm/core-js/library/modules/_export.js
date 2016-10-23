@@ -1,1 +1,65 @@
-"use strict";var exports=module.exports={},global=window=require("../../../labrador/global.js"),global=require("./_global.js"),core=require("./_core.js"),ctx=require("./_ctx.js"),hide=require("./_hide.js"),PROTOTYPE="prototype",$export=function(e,r,t){var o,n,i,p=e&$export.F,l=e&$export.G,u=e&$export.S,x=e&$export.P,a=e&$export.B,c=e&$export.W,exports=l?core:core[r]||(core[r]={}),s=exports[PROTOTYPE],P=l?global:u?global[r]:(global[r]||{})[PROTOTYPE];l&&(t=r);for(o in t)n=!p&&P&&void 0!==P[o],n&&o in exports||(i=n?P[o]:t[o],exports[o]=l&&"function"!=typeof P[o]?t[o]:a&&n?ctx(i,global):c&&P[o]==i?function(e){var r=function(r,t,o){if(this instanceof e){switch(arguments.length){case 0:return new e;case 1:return new e(r);case 2:return new e(r,t)}return new e(r,t,o)}return e.apply(this,arguments)};return r[PROTOTYPE]=e[PROTOTYPE],r}(i):x&&"function"==typeof i?ctx(Function.call,i):i,x&&((exports.virtual||(exports.virtual={}))[o]=i,e&$export.R&&s&&!s[o]&&hide(s,o,i)))};$export.F=1,$export.G=2,$export.S=4,$export.P=8,$export.B=16,$export.W=32,$export.U=64,$export.R=128,module.exports=$export;
+'use strict';
+(function(module,require){var exports=module.exports={};
+var global=window=require('../../../labrador/global.js');
+var global    = require('./_global.js')
+  , core      = require('./_core.js')
+  , ctx       = require('./_ctx.js')
+  , hide      = require('./_hide.js')
+  , PROTOTYPE = 'prototype';
+
+var $export = function(type, name, source){
+  var IS_FORCED = type & $export.F
+    , IS_GLOBAL = type & $export.G
+    , IS_STATIC = type & $export.S
+    , IS_PROTO  = type & $export.P
+    , IS_BIND   = type & $export.B
+    , IS_WRAP   = type & $export.W
+    , exports   = IS_GLOBAL ? core : core[name] || (core[name] = {})
+    , expProto  = exports[PROTOTYPE]
+    , target    = IS_GLOBAL ? global : IS_STATIC ? global[name] : (global[name] || {})[PROTOTYPE]
+    , key, own, out;
+  if(IS_GLOBAL)source = name;
+  for(key in source){
+    // contains in native
+    own = !IS_FORCED && target && target[key] !== undefined;
+    if(own && key in exports)continue;
+    // export native or passed
+    out = own ? target[key] : source[key];
+    // prevent global pollution for namespaces
+    exports[key] = IS_GLOBAL && typeof target[key] != 'function' ? source[key]
+    // bind timers to global for call from export context
+    : IS_BIND && own ? ctx(out, global)
+    // wrap global constructors for prevent change them in library
+    : IS_WRAP && target[key] == out ? (function(C){
+      var F = function(a, b, c){
+        if(this instanceof C){
+          switch(arguments.length){
+            case 0: return new C;
+            case 1: return new C(a);
+            case 2: return new C(a, b);
+          } return new C(a, b, c);
+        } return C.apply(this, arguments);
+      };
+      F[PROTOTYPE] = C[PROTOTYPE];
+      return F;
+    // make static versions for prototype methods
+    })(out) : IS_PROTO && typeof out == 'function' ? ctx(Function.call, out) : out;
+    // export proto methods to core.%CONSTRUCTOR%.methods.%NAME%
+    if(IS_PROTO){
+      (exports.virtual || (exports.virtual = {}))[key] = out;
+      // export proto methods to core.%CONSTRUCTOR%.prototype.%NAME%
+      if(type & $export.R && expProto && !expProto[key])hide(expProto, key, out);
+    }
+  }
+};
+// type bitmap
+$export.F = 1;   // forced
+$export.G = 2;   // global
+$export.S = 4;   // static
+$export.P = 8;   // proto
+$export.B = 16;  // bind
+$export.W = 32;  // wrap
+$export.U = 64;  // safe
+$export.R = 128; // real proto method for `library` 
+module.exports = $export;
+})(module,require);

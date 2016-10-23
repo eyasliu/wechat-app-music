@@ -1,1 +1,28 @@
-"use strict";var exports=module.exports={},isObject=require("./_is-object.js"),anObject=require("./_an-object.js"),check=function(t,e){if(anObject(t),!isObject(e)&&null!==e)throw TypeError(e+": can't set as prototype!")};module.exports={set:Object.setPrototypeOf||("__proto__"in{}?function(t,e,r){try{r=require("./_ctx.js")(Function.call,require("./_object-gopd.js").f(Object.prototype,"__proto__").set,2),r(t,[]),e=!(t instanceof Array)}catch(o){e=!0}return function(t,o){return check(t,o),e?t.__proto__=o:r(t,o),t}}({},!1):void 0),check:check};
+'use strict';
+(function(module,require){var exports=module.exports={};
+// Works with __proto__ only. Old v8 can't work with null proto objects.
+/* eslint-disable no-proto */
+var isObject = require('./_is-object.js')
+  , anObject = require('./_an-object.js');
+var check = function(O, proto){
+  anObject(O);
+  if(!isObject(proto) && proto !== null)throw TypeError(proto + ": can't set as prototype!");
+};
+module.exports = {
+  set: Object.setPrototypeOf || ('__proto__' in {} ? // eslint-disable-line
+    function(test, buggy, set){
+      try {
+        set = require('./_ctx.js')(Function.call, require('./_object-gopd.js').f(Object.prototype, '__proto__').set, 2);
+        set(test, []);
+        buggy = !(test instanceof Array);
+      } catch(e){ buggy = true; }
+      return function setPrototypeOf(O, proto){
+        check(O, proto);
+        if(buggy)O.__proto__ = proto;
+        else set(O, proto);
+        return O;
+      };
+    }({}, false) : undefined),
+  check: check
+};
+})(module,require);

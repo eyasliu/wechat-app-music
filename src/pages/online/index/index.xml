@@ -11,6 +11,6 @@
 <view class="container">
   <template is="tab" data="{{list: tab}}" />
   <view class="rank-list">
-    <template is="rankitem" wx:for="{{ranks}}" data="{{item: item}}" />
+    <template is="rankitem" wx:for="{{ranks}}" data="{{item: item}}" wx:key="{{item.type}}" />
   </view>
 </view>

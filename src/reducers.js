@@ -71,7 +71,7 @@ const tab = createReducer(initState.tab)({
 const rank = createReducer(initState.rank)({
 	RANK_UPDATE: (state, action) => ({
 		...state, 
-		...action.payload
+		...action.data
 	}),
 	LIST_UPDATE: (state, action) => {
 		console.log(state, action)
@@ -83,7 +83,7 @@ const rank = createReducer(initState.rank)({
 		...state, 
 		songlist: [
 			...state.songlist,
-			...action.list
+			...action.data.songlist
 		]
 	}),
 	RANK_BOARD_UPDATE: (state, action) => ({
@@ -95,7 +95,7 @@ const rank = createReducer(initState.rank)({
 const search = createReducer(initState.search)({
 	SEARCH: (state, action) => ({
 		...state,
-		list: action.list
+		list: action.songlist
 	})
 })
 

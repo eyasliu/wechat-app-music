@@ -27,7 +27,6 @@ class List extends wx.Component{
     var paged = this.data.paged + 1;
     this.loading(true)
     await wx.app.dispatch(getRankList(this.data.type, paged))
-    // const data = await api.getOnline(this.data.type, paged)
     this.setData({
       paged: paged,
       loading: false

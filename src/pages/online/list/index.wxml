@@ -14,7 +14,7 @@
 	<template is="tab" data="{{list: tab, active: tabActive}}" />
 	<template is="board" data="{{data: board}}" />
 	<view class="songlist">
-		<block wx:for="{{list}}">
+		<block wx:for="{{songlist}}"  wx:key="song_id">
 			<template is="songitem" data="{{item: item, index: index}}" />
 		</block>
 	</view>

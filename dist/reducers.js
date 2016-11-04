@@ -90,7 +90,7 @@ var tab = (0, _reduxCreateReducerCurry2.default)(initState.tab)({
 
 var rank = (0, _reduxCreateReducerCurry2.default)(initState.rank)({
 	RANK_UPDATE: function RANK_UPDATE(state, action) {
-		return (0, _extends3.default)({}, state, action.payload);
+		return (0, _extends3.default)({}, state, action.data);
 	},
 	LIST_UPDATE: function LIST_UPDATE(state, action) {
 		console.log(state, action);
@@ -100,7 +100,7 @@ var rank = (0, _reduxCreateReducerCurry2.default)(initState.rank)({
 	},
 	LIST_APPEND: function LIST_APPEND(state, action) {
 		return (0, _extends3.default)({}, state, {
-			songlist: [].concat((0, _toConsumableArray3.default)(state.songlist), (0, _toConsumableArray3.default)(action.list))
+			songlist: [].concat((0, _toConsumableArray3.default)(state.songlist), (0, _toConsumableArray3.default)(action.data.songlist))
 		});
 	},
 	RANK_BOARD_UPDATE: function RANK_BOARD_UPDATE(state, action) {
@@ -113,7 +113,7 @@ var rank = (0, _reduxCreateReducerCurry2.default)(initState.rank)({
 var search = (0, _reduxCreateReducerCurry2.default)(initState.search)({
 	SEARCH: function SEARCH(state, action) {
 		return (0, _extends3.default)({}, state, {
-			list: action.list
+			list: action.songlist
 		});
 	}
 });

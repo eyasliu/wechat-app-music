@@ -128,7 +128,6 @@ var List = function (_wx$Component) {
                 return _labrador2.default.app.dispatch((0, _actions.getRankList)(this.data.type, paged));
 
               case 4:
-                // const data = await api.getOnline(this.data.type, paged)
                 this.setData({
                   paged: paged,
                   loading: false

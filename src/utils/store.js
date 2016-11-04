@@ -1,10 +1,10 @@
 import {createStore, applyMiddleware, compose} from 'redux'
 import thunk from 'redux-thunk'
-import reduxPromise from 'redux-promise'
+import asyncAwait from 'redux-async-await'
 import logger from 'redux-logger'
 
 const middlewares = [
-	reduxPromise,
+	asyncAwait,
 	thunk,
 	logger(),
 ]

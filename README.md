@@ -4,7 +4,7 @@
 
 # 说明
 
-本项目使用 es2017 编码方式开发，感谢 [labrador](https://segmentfault.com/a/1190000007109050) 。
+本项目使用 ES2015 编码方式开发，感谢 [labrador](https://segmentfault.com/a/1190000007109050) 。
 
  - dist 项目编译后代码，在IDE新建项目时必须选择该文件夹预览
  - src 项目源代码目录，在里面可使用 es2017 语法
